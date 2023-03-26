@@ -38,16 +38,16 @@ public class Main {
 		}
 		while(!salir) {
             int opt =0;
-			System.out.println("------------------------------------------")
-			System.out.println("------------------ Menú ------------------")
-			System.out.println("------------------------------------------")
+			System.out.println("------------------------------------------");
+			System.out.println("------------------ Menu ------------------");
+			System.out.println("------------------------------------------");
 			System.out.println("- 1. Mostrar Diccionario Ingles-Espanol  -");
 			System.out.println("- 2. Mostrar Diccionario Frances-Espanol -");
 			System.out.println("- 3. Agregar palabra al diccionario      -");
 			System.out.println("- 4. Borrar palabra del diccionario      -");
 			System.out.println("- 5. Leer y traducir arhivo              -");
 			System.out.println("- 6. Salir                               -");
-			System.out.println("------------------------------------------")
+			System.out.println("------------------------------------------");
 			opt = Integer.parseInt(scanner.nextLine());
 			switch (opt) {
                 case 1: 
