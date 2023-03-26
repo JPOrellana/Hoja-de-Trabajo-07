@@ -107,4 +107,9 @@ public class Dictionary {
 		return spanWord;
 	}
 
+
+    public char[] showIngToSpan() {
+        return null;
+    }
+
 }
