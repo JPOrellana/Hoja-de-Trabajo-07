@@ -1,0 +1,7 @@
+dog,perro,chien
+homework,tarea,devoirs
+woman,mujer,femme
+town,pueblo,ville
+house,casa,loger
+apple,manzana,pomme
+sky,cielo,ciel
