@@ -148,7 +148,7 @@ import java.util.Comparator;
 		return null;
 	}
     
-
+    
 
 
 
@@ -180,6 +180,63 @@ import java.util.Comparator;
 		
 	}
 
+    private void internalInOrder(TreeNode<K, V> actual, ITreeTraversal<V> traversal) {
+		if (actual != null) {
+			internalInOrder(actual.getLeft(), traversal);
+			
+			traversal.Walk(actual.getValue());
+			
+			internalInOrder(actual.getRight(), traversal);
+		}
+	}
+	
+	private void internalPreOrder(TreeNode<K, V> actual, ITreeTraversal<V> traversal) {
+		if (actual != null) {
+			traversal.Walk(actual.getValue());
+			
+			internalPreOrder(actual.getLeft(), traversal);
+			
+			internalPreOrder(actual.getRight(), traversal);
+		}
+	}
+	
+	private void internalPostOrder(TreeNode<K, V> actual, ITreeTraversal<V> traversal) {
+		if (actual != null) {
+		
+			internalPostOrder(actual.getLeft(), traversal);
+			
+			internalPostOrder(actual.getRight(), traversal);
+			
+			traversal.Walk(actual.getValue());
+		}
+	}
+	
+	private V internalFind(TreeNode<K, V> actual, K id) {
+		if (actual != null) {
+			int result = keyComparator.compare(actual.getId(), id);
+			
+			if (result > 0) {
+				return internalFind(actual.getLeft(), id);
+			} else if (result < 0) {
+				return internalFind(actual.getRight(), id);
+			} else {
+				return actual.getValue();
+			}
+			
+		} else {
+			return null;
+		}
+	}
+	
+	private void internalGetElements(ArrayList<V> list, TreeNode<K, V> actual) {
+		if (actual != null) {
+			internalGetElements(list, actual.getLeft());
+			
+			list.add(actual.getValue());
+			
+			internalGetElements(list, actual.getRight());
+		}
+	}
 
     private V internalDelete(TreeNode<K, V> actual, K id, boolean isLeft) {
 		if (actual != null) {
