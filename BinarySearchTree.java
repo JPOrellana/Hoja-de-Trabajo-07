@@ -148,7 +148,45 @@ import java.util.Comparator;
 		return null;
 	}
     
-    
+    @Override
+	public V find(K id) {
+		return internalFind(root, id);
+	}
+
+	@Override
+	public int count() {
+		return count;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return count == 0;
+	}
+
+	@Override
+	public ArrayList<V> getElements() {
+		ArrayList<V> list = new ArrayList<V>();
+		
+		internalGetElements(list, root);
+		
+		return list;
+	}
+
+	@Override
+	public void inOrder(ITreeTraversal<V> traversal) {
+		internalInOrder(root, traversal);
+	}
+
+	@Override
+	public void preOrder(ITreeTraversal<V> traversal) {
+		internalPreOrder(root, traversal);
+		
+	}
+
+	@Override
+	public void postOrder(ITreeTraversal<V> traversal) {
+		internalPostOrder(root, traversal);
+	}
 
 
 
